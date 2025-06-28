@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/u-thread-critical-section.iml" filepath="$PROJECT_DIR$/u-thread-critical-section.iml" />
+      <module fileurl="file://$PROJECT_DIR$/u-thread-adder-subtractor-synchronization.iml" filepath="$PROJECT_DIR$/u-thread-adder-subtractor-synchronization.iml" />
     </modules>
   </component>
 </project>

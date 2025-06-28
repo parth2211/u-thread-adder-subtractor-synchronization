@@ -10,7 +10,7 @@ public class SharedResource2 {
         this.bankAmount = initialAmount;
     }
 
-    public void add(long amount) {
+    public synchronized void add(long amount) {
         long initialAmount = bankAmount;
         try {
             TimeUnit.MILLISECONDS.sleep(new Random().nextInt(500));
@@ -20,7 +20,7 @@ public class SharedResource2 {
         bankAmount = initialAmount + amount;
     }
 
-    public void sub(long amount) {
+    public synchronized void sub(long amount) {
         long initialAmount = bankAmount;
         try {
             TimeUnit.MILLISECONDS.sleep(new Random().nextInt(500));
