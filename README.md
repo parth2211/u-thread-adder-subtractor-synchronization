@@ -11,4 +11,7 @@ Critical section [Race Conditon]- thread safe : deposite/withdrawl use synchrosi
    exceuting half of SR, so its highly highlt possible to change SR behaviour by other thread. Hence, more frequent (100%)
    of the time, SR value is abrubt.
 
-   -- Now to avoid Race Condition, we can use synchronized kw over a function, which when ran by a thread, that thread will aquire Monitor lock on whole instance. No other thread able to access the SR.
++ Now to avoid Race Condition, we can use synchronized kw over a function, which when ran by a thread, that thread will aquire Monitor lock on whole instance. No other thread able to access the whole instance
+  leadig to bad performace
++ synchronized function added - thread only takes lock on an instance when control goes inside the syn fn and syn fun will always wrap only SR handling code. Other threads can access that instance/SR if
+  first thread tough have entered the SR instance but have not entered syn fn 
