@@ -1,6 +1,9 @@
 import threadcreator.Adder;
 import threadcreator.SharedResource;
 import threadcreator.Subtractor;
+import threadcreator2.Adder2;
+import threadcreator2.SharedResource2;
+import threadcreator2.Subtractor2;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -8,17 +11,17 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        SharedResource sharedResource = new SharedResource(1000);
+        SharedResource2 sharedResource = new SharedResource2(1000);
 
-        Thread adder = new Thread(new Adder(sharedResource, new ArrayList<>(Arrays.asList(500L, 400L))));
-        Thread subtractor = new Thread(new Subtractor(sharedResource, new ArrayList<>(Arrays.asList(200L, 200L, 500L))));
+        Thread adder2 = new Thread(new Adder2(sharedResource, new ArrayList<>(Arrays.asList(500L, 400L))));
+        Thread subtractor2 = new Thread(new Subtractor2(sharedResource, new ArrayList<>(Arrays.asList(200L, 200L, 500L))));
 
-        adder.start();
-        subtractor.start();
+        adder2.start();
+        subtractor2.start();
 
         try {
-            adder.join();
-            subtractor.join();
+            adder2.join();
+            subtractor2.join();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
