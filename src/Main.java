@@ -22,8 +22,9 @@ public class Main {
         subtractor2.start();
 
         try {
-            adder2.join();
             subtractor2.join();
+            System.out.println(" Total time taken by subtractor thread: " + (System.currentTimeMillis() - currentTime));
+            adder2.join();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
