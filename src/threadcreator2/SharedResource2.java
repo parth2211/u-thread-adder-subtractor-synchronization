@@ -13,21 +13,24 @@ public class SharedResource2 {
     public synchronized void add(long amount) {
         long initialAmount = bankAmount;
         try {
-            TimeUnit.MILLISECONDS.sleep(new Random().nextInt(500));
+            System.out.println("User want to add money .... but bank is on Lunch break");
+            TimeUnit.MILLISECONDS.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
         bankAmount = initialAmount + amount;
+        System.out.println("Deposit " + amount);
     }
 
     public synchronized void sub(long amount) {
         long initialAmount = bankAmount;
         try {
-            TimeUnit.MILLISECONDS.sleep(new Random().nextInt(500));
+            TimeUnit.MILLISECONDS.sleep(50);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
         bankAmount = initialAmount - amount;
+        System.out.println("Withdrawn " + amount);
     }
 
     public long getBankAmount() {

@@ -13,8 +13,10 @@ public class Main {
     public static void main(String[] args) {
         SharedResource2 sharedResource = new SharedResource2(1000);
 
-        Thread adder2 = new Thread(new Adder2(sharedResource, new ArrayList<>(Arrays.asList(500L, 400L))));
-        Thread subtractor2 = new Thread(new Subtractor2(sharedResource, new ArrayList<>(Arrays.asList(200L, 200L, 500L))));
+        Thread adder2 = new Thread(new Adder2(sharedResource, new ArrayList<>(Arrays.asList(800L))));
+        Thread subtractor2 = new Thread(new Subtractor2(sharedResource, new ArrayList<>(Arrays.asList(200L, 100L, 500L))));
+
+        long currentTime = System.currentTimeMillis();
 
         adder2.start();
         subtractor2.start();
@@ -26,6 +28,7 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-        System.out.println("Final amount : " + sharedResource.getBankAmount());
+        System.out.println("Final amount : " + sharedResource.getBankAmount() + " Total time taken : " +
+                (System.currentTimeMillis() - currentTime));
     }
 }
